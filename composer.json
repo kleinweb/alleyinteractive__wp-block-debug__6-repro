@@ -1,0 +1,38 @@
+{
+  "type": "project",
+  "license": "GPL-3.0-or-later",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "alleyinteractive/wp-block-debug": "^0.3.0",
+    "composer/installers": "^2.3",
+    "roots/acorn": "^5.0",
+    "wpackagist-plugin/gutenberg": "^20.9"
+  },
+  "config": {
+    "allow-plugins": {
+      "alleyinteractive/composer-wordpress-autoloader": true,
+      "composer/installers": true
+    },
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {},
+    "files": []
+  },
+  "scripts": {
+    "post-autoload-dump": ["Roots\\Acorn\\ComposerScripts::postAutoloadDump"]
+  }
+}
